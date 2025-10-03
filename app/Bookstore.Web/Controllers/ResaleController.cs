@@ -1,9 +1,11 @@
+using Bookstore.Web.Extensions;
+using Microsoft.AspNetCore.Authorization;
 ﻿using System.Threading.Tasks;
 using Bookstore.Web.ViewModel.Resale;
 using Bookstore.Web.Helpers;
 using Bookstore.Domain.Offers;
 using Bookstore.Domain.ReferenceData;
-using System.Web.Mvc;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Bookstore.Web.Controllers
 {
@@ -18,14 +20,14 @@ namespace Bookstore.Web.Controllers
             this.offerService = offerService;
         }
 
-        public async Task<ActionResult> Index()
+        public async Task<IActionResult> Index()
         {
             var offers = await offerService.GetOffersAsync(User.GetSub());
 
             return View(new ResaleIndexViewModel(offers));
         }
 
-        public async Task<ActionResult> Create()
+        public async Task<IActionResult> Create()
         {
             var referenceDataDtos = await referenceDataService.GetAllReferenceDataAsync();
 
@@ -33,7 +35,7 @@ namespace Bookstore.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Create(ResaleCreateViewModel resaleViewModel)
+        public async Task<IActionResult> Create(ResaleCreateViewModel resaleViewModel)
         {
             if (!ModelState.IsValid) return View();
 

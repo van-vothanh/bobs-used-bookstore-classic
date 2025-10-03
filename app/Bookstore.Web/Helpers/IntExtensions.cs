@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 ﻿namespace Bookstore.Web.Helpers
 {
     public static class IntExtensions

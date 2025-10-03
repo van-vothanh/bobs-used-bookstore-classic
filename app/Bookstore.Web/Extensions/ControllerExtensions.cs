@@ -1,6 +1,6 @@
-﻿using System.Web.Mvc;
+using Microsoft.AspNetCore.Mvc;
 
-namespace Bookstore.Web.Helpers
+namespace Bookstore.Web.Extensions
 {
     public static class ControllerExtensions
     {

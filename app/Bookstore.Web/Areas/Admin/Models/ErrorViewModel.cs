@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 ﻿namespace Bookstore.Web.Areas.Admin.Models
 {
     public class ErrorViewModel

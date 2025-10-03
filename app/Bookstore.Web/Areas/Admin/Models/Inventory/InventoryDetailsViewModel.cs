@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 ﻿using Bookstore.Domain.Books;
 
 namespace Bookstore.Web.Areas.Admin.Models.Inventory

@@ -1,47 +1,53 @@
-﻿using System.Diagnostics;
-using Bookstore.Web.ViewModel;
+using Bookstore.Web.Extensions;
+using Microsoft.AspNetCore.Authorization;
+using System.Diagnostics;
+using Bookstore.Web.Models;
 using Bookstore.Domain.Books;
 using System.Threading.Tasks;
 using Bookstore.Web.ViewModel.Home;
-using System.Web.Mvc;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Bookstore.Web.Controllers
 {
     [AllowAnonymous]
     public class HomeController : Controller
     {
-        private readonly IBookService bookService;
+        private readonly IBookRepository bookRepository;
 
-        public HomeController(IBookService bookService)
+        public HomeController(IBookRepository bookRepository)
         {
-            this.bookService = bookService;
+            this.bookRepository = bookRepository;
         }
 
-        public async Task<ActionResult> Index()
+        public async Task<IActionResult> Index()
         {
-            var books = await bookService.ListBestSellingBooksAsync(4);
+            var bestSellingBooks = await bookRepository.ListBestSellingBooksAsync(8);
 
-            return View(new HomeIndexViewModel(books));
+            var viewModel = new HomeIndexViewModel(bestSellingBooks);
+
+            return View(viewModel);
         }
 
-        public ActionResult Privacy()
+        public IActionResult Privacy()
         {
             return View();
         }
 
-        public ActionResult Search()
+        public IActionResult About()
         {
-            return RedirectToAction("Index", "Search");
+            return View();
         }
 
-        public ActionResult Cart()
+        public IActionResult Contact()
         {
-            return RedirectToAction("Index", "ShoppingCart");
+            return View();
         }
 
-        public ActionResult Error()
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id });
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

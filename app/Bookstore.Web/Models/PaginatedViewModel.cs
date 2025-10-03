@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 ﻿using System.Collections.Generic;
 
 namespace Bookstore.Web.ViewModel
