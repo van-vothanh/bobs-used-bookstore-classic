@@ -4,7 +4,7 @@ using Bookstore.Domain.Offers;
 using Bookstore.Domain.Orders;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -35,7 +35,7 @@ namespace Bookstore.Data.Repositories
 
         async Task IOfferRepository.AddAsync(Offer offer)
         {
-            await Task.Run(() => dbContext.Offer.Add(offer));
+            await dbContext.Offer.AddAsync(offer);
         }
 
         Task<Offer> IOfferRepository.GetAsync(int id)

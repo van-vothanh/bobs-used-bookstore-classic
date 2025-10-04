@@ -1,6 +1,7 @@
+using Microsoft.AspNetCore.Mvc.Rendering;
 ﻿using Bookstore.Domain.ReferenceData;
 using System.Collections.Generic;
-using System.Web.Mvc;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Bookstore.Web.Areas.Admin.Models.ReferenceData
 {
@@ -21,6 +22,6 @@ namespace Bookstore.Web.Areas.Admin.Models.ReferenceData
 
         public string Text { get; set; }
 
-        public IEnumerable<SelectListItem> DataTypes { get; set; }
+        public IEnumerable<Microsoft.AspNetCore.Mvc.Rendering.SelectListItem> DataTypes { get; set; }
     }
 }

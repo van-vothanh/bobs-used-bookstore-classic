@@ -1,9 +1,10 @@
+using Microsoft.AspNetCore.Mvc.Rendering;
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Bookstore.Domain.Books;
 using Bookstore.Domain.ReferenceData;
 using Bookstore.Web.Helpers;
@@ -49,25 +50,25 @@ namespace Bookstore.Web.Areas.Admin.Models.Inventory
         [Required]
         public string ISBN { get; set; }
 
-        public IEnumerable<SelectListItem> Publishers { get; set; } = new List<SelectListItem>();
+        public IEnumerable<Microsoft.AspNetCore.Mvc.Rendering.SelectListItem> Publishers { get; set; } = new List<SelectListItem>();
         
         [Required]
         [DisplayName("Publisher")]
         public int SelectedPublisherId { get; set; }
 
-        public IEnumerable<SelectListItem> BookTypes { get; set; } = new List<SelectListItem>();
+        public IEnumerable<Microsoft.AspNetCore.Mvc.Rendering.SelectListItem> BookTypes { get; set; } = new List<SelectListItem>();
 
         [Required]
         [DisplayName("Book Type")]
         public int SelectedBookTypeId { get; set; }
 
-        public IEnumerable<SelectListItem> Genres { get; set; } = new List<SelectListItem>();
+        public IEnumerable<Microsoft.AspNetCore.Mvc.Rendering.SelectListItem> Genres { get; set; } = new List<SelectListItem>();
        
         [Required]
         [DisplayName("Genre")]
         public int SelectedGenreId { get; set; }
 
-        public IEnumerable<SelectListItem> BookConditions { get; set; } = new List<SelectListItem>();
+        public IEnumerable<Microsoft.AspNetCore.Mvc.Rendering.SelectListItem> BookConditions { get; set; } = new List<SelectListItem>();
         
         [Required]
         [DisplayName("Condition")]
@@ -82,7 +83,7 @@ namespace Bookstore.Web.Areas.Admin.Models.Inventory
         [MaxFileSize(2*1024*1024)]
         [ImageTypes(new string[] {".png", ".jpg", ".jpeg"})]
         [DisplayName("Cover image")]
-        public HttpPostedFileBase CoverImage { get; set; }
+        public Microsoft.AspNetCore.Http.IFormFile CoverImage { get; set; }
         
         public string CoverImageUrl { get; set; }
 

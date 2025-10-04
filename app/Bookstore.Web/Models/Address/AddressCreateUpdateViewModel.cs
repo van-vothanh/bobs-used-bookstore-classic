@@ -1,6 +1,7 @@
+using Microsoft.AspNetCore.Mvc.Rendering;
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Web.Mvc;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Bookstore.Web.ViewModel.Address
 {
@@ -41,7 +42,7 @@ namespace Bookstore.Web.ViewModel.Address
 
         public string ReturnUrl { get; set; }
 
-        public IEnumerable<SelectListItem> States => new List<SelectListItem>
+        public IEnumerable<Microsoft.AspNetCore.Mvc.Rendering.SelectListItem> States => new List<SelectListItem>
         {
             new SelectListItem { Value = "", Text = "" },
             new SelectListItem { Value = "AL", Text = "Alabama" },

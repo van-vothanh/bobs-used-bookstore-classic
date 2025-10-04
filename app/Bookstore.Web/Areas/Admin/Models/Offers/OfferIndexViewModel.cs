@@ -1,10 +1,11 @@
+using Microsoft.AspNetCore.Mvc.Rendering;
 ﻿using Bookstore.Domain;
 using Bookstore.Domain.Offers;
 using Bookstore.Domain.ReferenceData;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web.Mvc;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Bookstore.Web.Areas.Admin.Models.Offers
 {
@@ -43,9 +44,9 @@ namespace Bookstore.Web.Areas.Admin.Models.Offers
 
         public OfferFilters Filters { get; set; }
 
-        public IEnumerable<SelectListItem> Genres { get; set; } = new List<SelectListItem>();
+        public IEnumerable<Microsoft.AspNetCore.Mvc.Rendering.SelectListItem> Genres { get; set; } = new List<SelectListItem>();
 
-        public IEnumerable<SelectListItem> BookConditions { get; set; } = new List<SelectListItem>();
+        public IEnumerable<Microsoft.AspNetCore.Mvc.Rendering.SelectListItem> BookConditions { get; set; } = new List<SelectListItem>();
     }
 
     public class OfferIndexItemViewModel

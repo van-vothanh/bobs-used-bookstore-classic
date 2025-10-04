@@ -1,10 +1,11 @@
+using Microsoft.AspNetCore.Mvc.Rendering;
 ﻿using Bookstore.Domain;
 using Bookstore.Domain.Books;
 using Bookstore.Domain.ReferenceData;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web.Mvc;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Bookstore.Web.Areas.Admin.Models.Inventory
 {
@@ -15,13 +16,13 @@ namespace Bookstore.Web.Areas.Admin.Models.Inventory
 
         public BookFilters Filters { get; set; } = new BookFilters();
 
-        public IEnumerable<SelectListItem> Publishers { get; set; } = new List<SelectListItem>();
+        public IEnumerable<Microsoft.AspNetCore.Mvc.Rendering.SelectListItem> Publishers { get; set; } = new List<SelectListItem>();
 
-        public IEnumerable<SelectListItem> BookTypes { get; set; } = new List<SelectListItem>();
+        public IEnumerable<Microsoft.AspNetCore.Mvc.Rendering.SelectListItem> BookTypes { get; set; } = new List<SelectListItem>();
 
-        public IEnumerable<SelectListItem> Genres { get; set; } = new List<SelectListItem>();
+        public IEnumerable<Microsoft.AspNetCore.Mvc.Rendering.SelectListItem> Genres { get; set; } = new List<SelectListItem>();
 
-        public IEnumerable<SelectListItem> BookConditions { get; set; } = new List<SelectListItem>();
+        public IEnumerable<Microsoft.AspNetCore.Mvc.Rendering.SelectListItem> BookConditions { get; set; } = new List<SelectListItem>();
 
         public InventoryIndexViewModel() { }
 
