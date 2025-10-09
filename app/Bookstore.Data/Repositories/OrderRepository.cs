@@ -3,7 +3,7 @@ using Bookstore.Domain.Books;
 using Bookstore.Domain.Orders;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -20,7 +20,7 @@ namespace Bookstore.Data.Repositories
 
         async Task IOrderRepository.AddAsync(Order order)
         {
-            await Task.Run(() => dbContext.Order.Add(order));
+            await dbContext.Order.AddAsync(order);
         }
 
         async Task<Order> IOrderRepository.GetAsync(int id)
