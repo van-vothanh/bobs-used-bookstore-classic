@@ -1,36 +1,29 @@
-﻿using Microsoft.Owin;
+using Microsoft.AspNetCore.Http;
 using System;
-using System.Drawing;
-using System.Net;
-using System.Web;
 
 namespace Bookstore.Web.Helpers
 {
     public static class HttpContextExtensions
     {
-        public static string GetShoppingCartCorrelationId(this HttpContextBase context)
+        private const string ShoppingCartCorrelationIdKey = "ShoppingCartCorrelationId";
+
+        public static string GetShoppingCartCorrelationId(this HttpContext context)
         {
-            var CookieKey = "ShoppingCartId";
-
-            var cookieOptions = new CookieOptions
+            if (context.Request.Cookies.TryGetValue(ShoppingCartCorrelationIdKey, out var correlationId))
             {
-                Expires = DateTime.Now.AddYears(1),
-                Path = "/"
-            };
-
-            HttpCookie cookie = context.Request.Cookies[CookieKey];
-            string shoppingCartClientId = cookie != null ? cookie.Value : null;
-
-            //var shoppingCartClientId = context.Request.Cookies[CookieKey].Value;
-
-            if (string.IsNullOrWhiteSpace(shoppingCartClientId))
-            {
-                shoppingCartClientId = context.User.Identity.IsAuthenticated ? context.User.GetSub() : Guid.NewGuid().ToString();
+                return correlationId;
             }
 
-            context.Response.Cookies.Add(new HttpCookie(CookieKey, shoppingCartClientId));
+            correlationId = Guid.NewGuid().ToString();
+            context.Response.Cookies.Append(ShoppingCartCorrelationIdKey, correlationId, new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = true,
+                SameSite = SameSiteMode.Lax,
+                Expires = DateTimeOffset.UtcNow.AddYears(1)
+            });
 
-            return shoppingCartClientId;
+            return correlationId;
         }
     }
 }
