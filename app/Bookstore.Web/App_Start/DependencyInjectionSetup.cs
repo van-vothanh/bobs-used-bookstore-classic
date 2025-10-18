@@ -1,7 +1,9 @@
+// TODO: Migrate to ASP.NET Core - OWIN not supported
+/*
 ﻿using System.IO;
 using System.Reflection;
 using System.Web;
-using System.Web.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Amazon.Rekognition;
 using Amazon.S3;
 using Autofac;
@@ -91,4 +93,4 @@ namespace Bookstore.Web
             app.UseAutofacMiddleware(container);
         }
     }
-}
+}*/

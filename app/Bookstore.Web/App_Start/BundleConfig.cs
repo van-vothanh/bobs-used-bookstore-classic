@@ -1,4 +1,8 @@
-﻿using System.Web.Optimization;
+// TODO: Migrate to WebOptimizer for ASP.NET Core
+// WebOptimizer API is different from System.Web.Optimization
+// Configure in Program.cs using builder.Services.AddWebOptimizer()
+/*
+using WebOptimizer;
 
 namespace Bookstore.Web
 {
@@ -27,3 +31,4 @@ namespace Bookstore.Web
         }
     }
 }
+*/

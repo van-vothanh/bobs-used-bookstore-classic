@@ -1,4 +1,9 @@
-﻿using BobsBookstoreClassic.Data;
+// TODO: Migrate to ASP.NET Core - NLog configuration is different
+// In ASP.NET Core, configure NLog in Program.cs:
+// builder.Logging.ClearProviders();
+// builder.Host.UseNLog();
+/*
+using BobsBookstoreClassic.Data;
 using Bookstore.Common;
 using NLog;
 using NLog.AWS.Logger;
@@ -32,3 +37,4 @@ namespace Bookstore.Web
         }
     }
 }
+*/

@@ -1,4 +1,11 @@
-﻿using System.Web.Mvc;
+// TODO: Migrate to ASP.NET Core - AreaRegistration not supported
+// In ASP.NET Core, areas are configured using [Area] attribute on controllers
+// and routes in Program.cs:
+// app.MapControllerRoute(
+//     name: "areas",
+//     pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+/*
+using Microsoft.AspNetCore.Mvc;
 
 namespace Bookstore.Web.Areas
 {
@@ -22,3 +29,4 @@ namespace Bookstore.Web.Areas
         }
     }
 }
+*/

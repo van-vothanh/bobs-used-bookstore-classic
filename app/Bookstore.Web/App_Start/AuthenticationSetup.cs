@@ -1,3 +1,5 @@
+// TODO: Migrate to ASP.NET Core - OWIN not supported
+/*
 ﻿using System.Security.Claims;
 using System.Threading.Tasks;
 using Autofac;
@@ -91,4 +93,4 @@ namespace Bookstore.Web
             });
         }
     }
-}
+}*/

@@ -1,7 +1,10 @@
-﻿using System.Web;
-using System.Web.Mvc;
-using System.Web.Optimization;
-using System.Web.Routing;
+// TODO: Migrate to ASP.NET Core - Global.asax not supported
+// Application startup logic moved to Program.cs
+/*
+using System.Web;
+using Microsoft.AspNetCore.Mvc;
+using WebOptimizer;
+using Microsoft.AspNetCore.Routing;
 using NLog;
 
 namespace Bookstore.Web
@@ -25,3 +28,4 @@ namespace Bookstore.Web
         }
     }
 }
+*/

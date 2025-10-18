@@ -1,5 +1,9 @@
-﻿using System.Web.Mvc;
-using System.Web.Routing;
+// TODO: Migrate to ASP.NET Core - RouteCollection not supported
+// In ASP.NET Core, configure routes in Program.cs:
+// app.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
+/*
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 
 namespace Bookstore.Web
 {
@@ -18,3 +22,4 @@ namespace Bookstore.Web
         }
     }
 }
+*/
