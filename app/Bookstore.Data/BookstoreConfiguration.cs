@@ -1,35 +1,54 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Configuration;
+using Microsoft.Extensions.Configuration;
 
 namespace BobsBookstoreClassic.Data
 {
     public sealed class BookstoreConfiguration
     {
-        private static readonly Lazy<BookstoreConfiguration> Lazy = new Lazy<BookstoreConfiguration>(() => new BookstoreConfiguration());
-
-        private static BookstoreConfiguration Instance => Lazy.Value;
-
-        private readonly Dictionary<string, string> _appSettings = new Dictionary<string, string>();
-        private readonly Dictionary<string, string> _connectionStrings = new Dictionary<string, string>();
+        private static IConfiguration? _configuration;
+        private readonly Dictionary<string, string?> _appSettings = new Dictionary<string, string?>();
+        private readonly Dictionary<string, string?> _connectionStrings = new Dictionary<string, string?>();
 
         private BookstoreConfiguration()
         {
-            foreach (string key in ConfigurationManager.AppSettings)
+            if (_configuration != null)
             {
-                _appSettings[key] = ConfigurationManager.AppSettings[key];
-
-                if (Environment.GetEnvironmentVariable(key) != null)
+                foreach (var setting in _configuration.AsEnumerable())
                 {
-                    _appSettings[key] = Environment.GetEnvironmentVariable(key);
+                    if (setting.Value != null)
+                    {
+                        _appSettings[setting.Key] = setting.Value;
+                    }
+                }
+
+                var connectionStrings = _configuration.GetSection("ConnectionStrings");
+                foreach (var conn in connectionStrings.GetChildren())
+                {
+                    if (conn.Value != null)
+                    {
+                        _connectionStrings[conn.Key] = conn.Value;
+                    }
                 }
             }
 
-            foreach (ConnectionStringSettings connectionStringSettings in ConfigurationManager.ConnectionStrings)
+            // Override with environment variables
+            foreach (var key in _appSettings.Keys)
             {
-                _connectionStrings[connectionStringSettings.Name] = connectionStringSettings.ConnectionString;
-
+                var envValue = Environment.GetEnvironmentVariable(key);
+                if (envValue != null)
+                {
+                    _appSettings[key] = envValue;
+                }
             }
+        }
+
+        private static readonly Lazy<BookstoreConfiguration> Lazy = new Lazy<BookstoreConfiguration>(() => new BookstoreConfiguration());
+        private static BookstoreConfiguration Instance => Lazy.Value;
+
+        public static void Initialize(IConfiguration configuration)
+        {
+            _configuration = configuration;
         }
 
         public static void AddSetting(string key, string value)
@@ -37,15 +56,15 @@ namespace BobsBookstoreClassic.Data
             Instance._appSettings[key] = value;
         }
 
-        public static string GetSetting(string key)
+        public static string? GetSetting(string key)
         {
-            return Instance._appSettings[key];
+            return Instance._appSettings.TryGetValue(key, out var value) ? value : null;
         }
 
-        public static T GetSetting<T>(string key)
+        public static T? GetSetting<T>(string key)
         {
-            var value = Instance._appSettings[key];
-
+            var value = GetSetting(key);
+            if (value == null) return default;
             return (T)Convert.ChangeType(value, typeof(T));
         }
 
@@ -54,10 +73,9 @@ namespace BobsBookstoreClassic.Data
             Instance._connectionStrings[key] = value;
         }
 
-        public static string GetConnectionString(string key)
+        public static string? GetConnectionString(string key)
         {
-            return Instance._connectionStrings[key];
+            return Instance._connectionStrings.TryGetValue(key, out var value) ? value : null;
         }
-
     }
 }

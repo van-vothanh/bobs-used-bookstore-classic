@@ -1,36 +1,22 @@
-﻿using Microsoft.Owin;
+using Microsoft.AspNetCore.Http;
 using System;
-using System.Drawing;
-using System.Net;
-using System.Web;
 
 namespace Bookstore.Web.Helpers
 {
     public static class HttpContextExtensions
     {
-        public static string GetShoppingCartCorrelationId(this HttpContextBase context)
+        private const string ShoppingCartCorrelationIdKey = "ShoppingCartCorrelationId";
+
+        public static Guid GetShoppingCartCorrelationId(this HttpContext context)
         {
-            var CookieKey = "ShoppingCartId";
-
-            var cookieOptions = new CookieOptions
+            if (context.Session.TryGetValue(ShoppingCartCorrelationIdKey, out var bytes))
             {
-                Expires = DateTime.Now.AddYears(1),
-                Path = "/"
-            };
-
-            HttpCookie cookie = context.Request.Cookies[CookieKey];
-            string shoppingCartClientId = cookie != null ? cookie.Value : null;
-
-            //var shoppingCartClientId = context.Request.Cookies[CookieKey].Value;
-
-            if (string.IsNullOrWhiteSpace(shoppingCartClientId))
-            {
-                shoppingCartClientId = context.User.Identity.IsAuthenticated ? context.User.GetSub() : Guid.NewGuid().ToString();
+                return new Guid(bytes);
             }
 
-            context.Response.Cookies.Add(new HttpCookie(CookieKey, shoppingCartClientId));
-
-            return shoppingCartClientId;
+            var correlationId = Guid.NewGuid();
+            context.Session.Set(ShoppingCartCorrelationIdKey, correlationId.ToByteArray());
+            return correlationId;
         }
     }
 }
