@@ -1,4 +1,7 @@
-﻿using System.Web.Mvc;
+// TODO: Area registration is automatic in ASP.NET Core
+// Areas are discovered by convention - no explicit registration needed
+/*
+using Microsoft.AspNetCore.Mvc;
 
 namespace Bookstore.Web.Areas
 {
@@ -22,3 +25,4 @@ namespace Bookstore.Web.Areas
         }
     }
 }
+*/

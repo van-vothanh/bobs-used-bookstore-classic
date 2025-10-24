@@ -1,4 +1,6 @@
-﻿using System.Web.Optimization;
+// TODO: Migrate to Program.cs
+/*
+﻿// TODO: Migrate bundling to WebOptimizer or static assets
 
 namespace Bookstore.Web
 {
@@ -27,3 +29,4 @@ namespace Bookstore.Web
         }
     }
 }
+*/

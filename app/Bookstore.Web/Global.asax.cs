@@ -1,7 +1,10 @@
-﻿using System.Web;
-using System.Web.Mvc;
-using System.Web.Optimization;
-using System.Web.Routing;
+// TODO: This file is replaced by Program.cs in ASP.NET Core
+// Application_Start logic should be moved to Program.cs
+/*
+using System.Web;
+using Microsoft.AspNetCore.Mvc;
+// TODO: Migrate bundling to WebOptimizer or static assets
+using Microsoft.AspNetCore.Routing;
 using NLog;
 
 namespace Bookstore.Web
@@ -25,3 +28,4 @@ namespace Bookstore.Web
         }
     }
 }
+*/

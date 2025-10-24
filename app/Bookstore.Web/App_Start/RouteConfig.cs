@@ -1,5 +1,7 @@
-﻿using System.Web.Mvc;
-using System.Web.Routing;
+// TODO: Migrate to Program.cs
+/*
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 
 namespace Bookstore.Web
 {
@@ -18,3 +20,4 @@ namespace Bookstore.Web
         }
     }
 }
+*/

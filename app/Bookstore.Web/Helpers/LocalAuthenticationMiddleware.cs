@@ -1,3 +1,5 @@
+// TODO: Migrate to ASP.NET Core equivalents
+/*
 ﻿using System;
 using Microsoft.Owin;
 using System.Security.Claims;
@@ -72,4 +74,4 @@ namespace Bookstore.Web.Helpers
             await _customerService.CreateOrUpdateCustomerAsync(dto);
         }
     }
-}
+}*/

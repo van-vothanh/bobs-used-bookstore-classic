@@ -1,3 +1,5 @@
+// TODO: Migrate to Program.cs
+/*
 ﻿using BobsBookstoreClassic.Data;
 using Bookstore.Common;
 using NLog;
@@ -31,4 +33,4 @@ namespace Bookstore.Web
             LogManager.Configuration = config;
         }
     }
-}
+}*/
