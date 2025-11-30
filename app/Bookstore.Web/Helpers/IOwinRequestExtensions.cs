@@ -1,3 +1,5 @@
+// TODO: Migrate to ASP.NET Core middleware
+/*
 ﻿using Microsoft.Owin;
 
 namespace Bookstore.Web.Helpers
@@ -9,4 +11,4 @@ namespace Bookstore.Web.Helpers
             return $"{request.Scheme}://{request.Host}/signin-oidc";
         }
     }
-}
+}*/

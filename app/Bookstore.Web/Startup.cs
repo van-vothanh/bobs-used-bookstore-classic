@@ -1,4 +1,7 @@
-﻿using Microsoft.Owin;
+// TODO: Migrate OWIN startup logic to Program.cs
+// OWIN is not used in ASP.NET Core
+/*
+using Microsoft.Owin;
 using Owin;
 
 [assembly: OwinStartup(typeof(Bookstore.Web.Startup))]
@@ -19,3 +22,4 @@ namespace Bookstore.Web
         }
     }
 }
+*/

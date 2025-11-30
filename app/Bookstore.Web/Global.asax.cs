@@ -1,8 +1,10 @@
-﻿using System.Web;
-using System.Web.Mvc;
+// TODO: Migrate Global.asax logic to Program.cs
+// Global.asax is not used in ASP.NET Core
+/*
+using Bookstore.Web.App_Start;
+using System;
 using System.Web.Optimization;
 using System.Web.Routing;
-using NLog;
 
 namespace Bookstore.Web
 {
@@ -10,18 +12,10 @@ namespace Bookstore.Web
     {
         protected void Application_Start()
         {
-            AreaRegistration.RegisterAllAreas();
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-        }
-
-        protected void Application_Error()
-        {
-            var ex = Server.GetLastError();
-            var logger = LogManager.GetCurrentClassLogger();
-
-            logger.Error(ex);
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
         }
     }
 }
+*/

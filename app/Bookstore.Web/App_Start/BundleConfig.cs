@@ -1,3 +1,5 @@
+// TODO: Migrate to Program.cs
+/*
 ﻿using System.Web.Optimization;
 
 namespace Bookstore.Web
@@ -27,3 +29,4 @@ namespace Bookstore.Web
         }
     }
 }
+*/

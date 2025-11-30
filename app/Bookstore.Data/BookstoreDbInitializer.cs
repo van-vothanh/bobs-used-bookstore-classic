@@ -1,10 +1,12 @@
-﻿using Bookstore.Domain.Books;
+using Bookstore.Domain.Books;
 using Bookstore.Domain.ReferenceData;
 using System.Collections.Generic;
-using System.Data.Entity;
 
 namespace Bookstore.Data
 {
+    // TODO: Migrate to EF Core seeding approach using HasData or a seeding service
+    // EF6 DropCreateDatabaseIfModelChanges is not available in EF Core
+    /*
     public class BookstoreDbInitializer : DropCreateDatabaseIfModelChanges<ApplicationDbContext>
     {
         protected override void Seed(ApplicationDbContext context)
@@ -57,4 +59,5 @@ namespace Bookstore.Data
             context.SaveChanges();
         }
     }
+    */
 }

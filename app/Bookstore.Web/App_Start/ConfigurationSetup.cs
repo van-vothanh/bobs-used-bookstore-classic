@@ -1,3 +1,5 @@
+// TODO: Migrate to Program.cs
+/*
 ﻿using Amazon.SimpleSystemsManagement;
 using Amazon.SimpleSystemsManagement.Model;
 using BobsBookstoreClassic.Data;
@@ -56,4 +58,4 @@ namespace Bookstore.Web
             }
         }
     }
-}
+}*/

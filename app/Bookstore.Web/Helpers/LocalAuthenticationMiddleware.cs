@@ -1,8 +1,10 @@
+// TODO: Migrate to ASP.NET Core middleware
+/*
 ﻿using System;
 using Microsoft.Owin;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using System.Web;
+using Microsoft.AspNetCore.Http;
 using Bookstore.Domain.Customers;
 
 namespace Bookstore.Web.Helpers
@@ -72,4 +74,4 @@ namespace Bookstore.Web.Helpers
             await _customerService.CreateOrUpdateCustomerAsync(dto);
         }
     }
-}
+}*/

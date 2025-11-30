@@ -1,3 +1,5 @@
+// TODO: Migrate to Program.cs
+/*
 ﻿using System.Security.Claims;
 using System.Threading.Tasks;
 using Autofac;
@@ -91,4 +93,4 @@ namespace Bookstore.Web
             });
         }
     }
-}
+}*/
