@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Web.Mvc;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace Bookstore.Web.ViewModel.Address
+namespace Bookstore.Web.Models.Address
 {
     public class AddressCreateUpdateViewModel
     {
